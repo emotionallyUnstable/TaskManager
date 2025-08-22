@@ -1,14 +1,15 @@
-
+import { useState } from 'react'
 
 interface MyListProps {
-    tasks: string[]
+    tasks: string[];
+    onDelete: (index: number) => void;
+    
 }
 
 
 
-function MyList({ tasks }:MyListProps ) {
-
-
+function MyList({ tasks, onDelete }:MyListProps) {
+const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -24,9 +25,9 @@ function MyList({ tasks }:MyListProps ) {
 
           
             <li key={index} className="flex h-[100px]  max-h-200px overflow-y-auto justify-around items-center gap-4 border-1"><span className="flex-1 max-w-[500px]   break-words">{task}</span>
-            <button className="flex text-red-500">❌</button></li>
+            <input className="w-[20px] h-[20px]" type="checkbox" />
+            <button onClick={() => onDelete(index)} className="flex text-red-500">❌</button></li>
           
-
         ))}
        </div>
     </div>

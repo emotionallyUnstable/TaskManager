@@ -7,15 +7,18 @@ function App() {
 const [tasks, setTasks] = useState<string[]>([]);
 
 const addTask = (taskText: string) => {
-  if (taskText.trim() !== "" ) {
-    setTasks([...tasks, taskText]);
-  }
+  const t = taskText.trim()
+  if (t) setTasks(prev => [...prev, t])
 };
+
+const deleteTask = (index: number) => {
+  setTasks(prev => prev.filter((_, i) => i !== index))
+}
   
   return (
     <>
       <MyTaskManager onAddTask={addTask} />
-      <MyList tasks={tasks}/>
+      <MyList tasks={tasks} onDelete={deleteTask}/>
     </>
   )
 }
