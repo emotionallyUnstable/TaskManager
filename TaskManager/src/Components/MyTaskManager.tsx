@@ -5,6 +5,7 @@ interface MyTaskManagerProps {
     onAddTask: (taskText: string) => void
 }
 
+
 function MyTaskManager({ onAddTask }: MyTaskManagerProps) {
 const [inputTask, setInputTask] = useState("")
 
