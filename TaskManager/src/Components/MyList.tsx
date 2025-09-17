@@ -12,12 +12,9 @@ interface MyListProps {
 }
 
 
-
-
-
 function MyList({ tasks, onDelete, onToggle, onFilterChange }:MyListProps) {
 
-
+ 
   return (
     <>
 
